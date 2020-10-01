@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>807</width>
+    <height>668</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="edit_genre"/>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLineEdit" name="edit_year"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_title">
+      <property name="text">
+       <string>Title</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="edit_artist"/>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QListView" name="list_songs"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_album">
+      <property name="text">
+       <string>Album</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLineEdit" name="edit_track"/>
+    </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_year">
+      <property name="text">
+       <string>Year</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="1">
+     <widget class="QPushButton" name="button_save">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="edit_album"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_comment">
+      <property name="text">
+       <string>Comment</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="edit_comment"/>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_track">
+      <property name="text">
+       <string>Track</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="edit_title"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_genre">
+      <property name="text">
+       <string>Genre</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_artist">
+      <property name="text">
+       <string>Artist</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_filename">
+      <property name="text">
+       <string>Filename</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="edit_filename">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_dirname">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dirname</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>807</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menu_finder">
+    <property name="title">
+     <string>Finder</string>
+    </property>
+    <addaction name="action_openDirectory"/>
+    <addaction name="action_recursion"/>
+   </widget>
+   <widget class="QMenu" name="menu_sort">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuSort">
+     <property name="title">
+      <string>Sort</string>
+     </property>
+     <addaction name="action_byTitle"/>
+     <addaction name="action_byArtist"/>
+     <addaction name="action_byAlbum"/>
+     <addaction name="action_byGenre"/>
+     <addaction name="action_byComment"/>
+     <addaction name="action_byTrack"/>
+     <addaction name="action_byYear"/>
+    </widget>
+    <addaction name="menuSort"/>
+   </widget>
+   <addaction name="menu_finder"/>
+   <addaction name="menu_sort"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_openDirectory">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Open directory</string>
+   </property>
+  </action>
+  <action name="action_recursion">
+   <property name="text">
+    <string>Toggle recursion</string>
+   </property>
+  </action>
+  <action name="action_byTitle">
+   <property name="text">
+    <string>Title</string>
+   </property>
+  </action>
+  <action name="action_byArtist">
+   <property name="text">
+    <string>Artist</string>
+   </property>
+  </action>
+  <action name="action_byAlbum">
+   <property name="text">
+    <string>Album</string>
+   </property>
+  </action>
+  <action name="action_byGenre">
+   <property name="text">
+    <string>Genre</string>
+   </property>
+  </action>
+  <action name="action_byComment">
+   <property name="text">
+    <string>Comment</string>
+   </property>
+  </action>
+  <action name="action_byTrack">
+   <property name="text">
+    <string>Track</string>
+   </property>
+  </action>
+  <action name="action_byYear">
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
