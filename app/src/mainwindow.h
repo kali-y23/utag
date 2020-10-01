@@ -5,6 +5,15 @@
 #include <QDir>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QList>
+#include <QStandardItemModel>
+
+#include "tag.h"
+#include "fileref.h"
+
+#include <map>
+
+#include "song.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,7 +26,9 @@ class MainWindow : public QMainWindow
 private:
     Ui::MainWindow *ui;
     QString m_dirname;
+    QStandardItemModel *m_model;
     bool m_recursion = false;
+    std::map<QString, Song> m_songs;
 
 public:
     MainWindow(int argc, char *argv[], QWidget *parent = nullptr);
@@ -44,9 +55,15 @@ private slots:
 
     void on_button_save_clicked();
 
+    void on_list_songs_doubleClicked(const QModelIndex &index);
+
 private:
     void openDir(QString dirname);
-    void processDir();
+    void processDir(QDir dir);
+    void readDir(QDir dir, const QString& name_prefix);
+    void printDir();
+    void makeUnreadableFile(std::map<QString, Song>& songs, const QFileInfo& file, const QString& name_prefix);
+    void editTags(std::string path);
 
 };
 #endif // MAINWINDOW_H
