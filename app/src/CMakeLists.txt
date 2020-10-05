@@ -20,7 +20,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 set(TARGET utaglib)
-set(SOURCES mainwindow.cpp sorting.cpp)
+set(SOURCES mainwindow.cpp sorting.cpp slots.cpp)
 
 add_library(${TARGET} ${SOURCES})
 

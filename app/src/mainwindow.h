@@ -7,11 +7,15 @@
 #include <QFileDialog>
 #include <QList>
 #include <QStandardItemModel>
+#include <QAction>
 
 #include "tag.h"
 #include "fileref.h"
 
 #include <map>
+#include <algorithm>
+#include <vector>
+#include <cctype>
 
 #include "song.h"
 
@@ -29,6 +33,7 @@ private:
     QStandardItemModel *m_model;
     bool m_recursion = false;
     std::map<QString, Song> m_songs;
+    std::vector <Song> m_vector;
 
 public:
     MainWindow(int argc, char *argv[], QWidget *parent = nullptr);
@@ -58,12 +63,16 @@ private slots:
     void on_list_songs_doubleClicked(const QModelIndex &index);
 
 private:
-    void openDir(QString dirname);
+    void setDir(QDir dir);
+    void processRecursion(QDir dir, const QString& name_prefix);
+    QDir openDir(QString dirname);
     void processDir(QDir dir);
     void readDir(QDir dir, const QString& name_prefix);
-    void printDir();
+    void printMap();
+    void printVector();
     void makeUnreadableFile(std::map<QString, Song>& songs, const QFileInfo& file, const QString& name_prefix);
-    void editTags(std::string path);
-
+    void editTags(std::string path, const QString& filename);
+    std::vector<Song> makeVector();
+    void fillSong(Song& song, TagLib::FileRef tag);
 };
 #endif // MAINWINDOW_H
